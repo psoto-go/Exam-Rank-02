@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 12:17:33 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/11/25 14:15:56 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:50:23 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,12 @@ int checker(char c, char c1, va_list args)
     res = 0;
     if (c == '%' && c1 == 's')
         ft_write(va_arg(args, char *), &res);
-    if (c == '%' && c1 == 'd')
+    else if (c == '%' && c1 == 'd')
         ft_putnbr(va_arg(args, int), &res);
-    if (c == '%' && c1 == 'x')
+    else if (c == '%' && c1 == 'x')
         ft_write(ft_detohe(va_arg(args, unsigned int)), &res);
+    else if (c == '%' && c1 =='%')
+        ft_putchar('%', &res);
     return (res);
 }
 
