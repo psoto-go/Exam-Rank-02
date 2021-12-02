@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 15:56:11 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/01 10:35:12 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/12/02 17:21:57 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,22 @@ void	ft_putnbr_base(long long int num, int *res, char *base, long long int n)
 {
 	if (num < 0)
 	{
+		num = num * -1;
 		ft_putchar('-', res);
-		num *= -1;
 	}
 	if (num >= n)
+	{
 		ft_putnbr_base(num / n, res, base, n);
+	}
 	ft_putchar(base[num % n], res);
 }
 
 void	ft_putnbr_basex(long long int num, int *res, char *base, long long int n)
 {
 	if (num >= n)
-		ft_putnbr_basex(num / n, res, base, n);
+	{
+		ft_putnbr_base(num / n, res, base, n);
+	}
 	ft_putchar(base[num % n], res);
 }
 
